@@ -165,7 +165,6 @@ models/Todo.js           ← Mongoose schema (single source of truth for shape)
 | `description` | `string`   | Optional, default `''`             |
 | `completed`   | `boolean`  | Default `false`                    |
 | `priority`    | `string`   | `low` \| `medium` \| `high`       |
-| `dueDate`     | `string`   | `YYYY-MM-DD` or `null`             |
 | `tags`        | `string[]` | Default `[]`                       |
 | `createdAt`   | `string`   | ISO 8601, auto-managed             |
 | `updatedAt`   | `string`   | ISO 8601, auto-managed             |
