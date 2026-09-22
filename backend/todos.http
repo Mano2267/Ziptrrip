@@ -25,7 +25,6 @@ Content-Type: application/json
   "title": "New task from REST client",
   "description": "Testing create endpoint",
   "priority": "high",
-  "dueDate": "2026-10-01",
   "tags": ["test", "api"]
 }
 
