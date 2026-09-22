@@ -1,0 +1,46 @@
+### Todo API - REST Client file (VS Code REST Client / IntelliJ)
+### Base URL
+@base = http://localhost:3001
+
+### Health
+GET {{base}}/api/health
+
+### List all todos
+GET {{base}}/api/todos
+
+### List with filters
+GET {{base}}/api/todos?completed=false&priority=high&search=react&sortBy=dueDate&order=asc
+
+### Stats
+GET {{base}}/api/todos/stats
+
+### Get one (replace ID)
+GET {{base}}/api/todos/{{id}}
+
+### Create
+POST {{base}}/api/todos
+Content-Type: application/json
+
+{
+  "title": "New task from REST client",
+  "description": "Testing create endpoint",
+  "priority": "high",
+  "dueDate": "2026-10-01",
+  "tags": ["test", "api"]
+}
+
+### Update (replace ID)
+PUT {{base}}/api/todos/{{id}}
+Content-Type: application/json
+
+{
+  "title": "Updated title",
+  "completed": true,
+  "priority": "medium"
+}
+
+### Toggle
+PATCH {{base}}/api/todos/{{id}}/toggle
+
+### Delete
+DELETE {{base}}/api/todos/{{id}}

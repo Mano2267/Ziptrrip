@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Keyframes ─────────────────────────────────────── */
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.93); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-enter {
+  animation: slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply antialiased;
+    background: #f1f5f9;
+    min-height: 100vh;
+    color: #1e293b;
+  }
+}
+
+@layer components {
+
+  /* ── Buttons ──────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-40 disabled:cursor-not-allowed
+           select-none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ripple overlay on click */
+  .btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.18);
+    opacity: 0;
+    transition: opacity 0.15s;
+    border-radius: inherit;
+  }
+  .btn:active::after { opacity: 1; }
+  .btn:active        { animation: pop 0.18s ease-in-out; }
+
+  .btn-primary {
+    @apply btn text-white focus:ring-brand-400;
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    @apply btn text-brand-700 border border-brand-300 bg-white focus:ring-brand-400;
+  }
+  .btn-secondary:hover {
+    @apply bg-brand-50;
+    transform: translateY(-1px);
+  }
+
+  .btn-danger {
+    @apply btn text-white focus:ring-red-400;
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  }
+  .btn-danger:hover {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-600 focus:ring-slate-300;
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    @apply bg-slate-100 text-slate-800;
+  }
+
+  /* ── Inputs ───────────────────────────────────────── */
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm
+           text-slate-800 placeholder:text-slate-400
+           focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-400/30
+           transition-all duration-200;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* ── Cards ────────────────────────────────────────── */
+  .card {
+    @apply rounded-2xl bg-white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover {
+    border-color: #c4b5fd;
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.12);
+    transform: translateY(-2px);
+  }
+}

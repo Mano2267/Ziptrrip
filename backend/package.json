@@ -1,0 +1,31 @@
+{
+  "name": "todo-app-backend",
+  "version": "1.0.0",
+  "description": "Production-ready Todo API with Express and file-based storage",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [
+    "todo",
+    "api",
+    "express"
+  ],
+  "author": "Interview Candidate",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.1",
+    "express": "^4.21.0",
+    "mongoose": "^9.10.1",
+    "morgan": "^1.10.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
